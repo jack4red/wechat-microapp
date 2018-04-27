@@ -1,0 +1,144 @@
+@import "../../template/custom.wxss";
+/**index.wxss**/
+.banner{
+  width: 100%;
+  height: 340rpx;
+  position: relative;
+}
+.banner image{
+  width: 100%;
+  height: 100%;
+}
+.banner .location{
+  position: absolute;
+  left: 38rpx;
+  top: 38rpx;
+}
+.banner .location image{
+  width:24rpx;
+  height: 32rpx; 
+  vertical-align: middle;
+}
+.banner .location text{
+  font-size: 26rpx;
+  color: #fff;
+  vertical-align: middle;
+  padding-left: 7rpx;
+}
+.banner .banner_text{
+  font-size: 48rpx;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 37%;
+  left: 0;
+  font-weight: bolder;
+}
+.search_house{
+  width: 89%;
+  margin: auto;
+  height: 210rpx;
+  background: #fff;
+  transform: translateY(-50%); 
+  border-radius: 8rpx;
+  box-shadow: 0rpx 4rpx 8rpx 3rpx #c5c5c5;
+  margin-bottom: -69rpx;
+}
+.search_house .house_button{
+  background: #ffa229; 
+  width: 41.7%;
+  height: 64rpx;
+  border-radius: 32rpx;  
+  color: #fff;
+  text-align: center;
+  line-height: 64rpx;
+  border:1rpx solid ffa229; 
+  font-size: 26rpx;
+  margin: auto;
+}
+.search_house .search_house_term{
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  width: 92%;
+  padding: 31rpx 4% 27rpx 4%;
+  height: auto;
+}
+.search_house .search_house_term > view{
+  border: 1rpx solid #e6e6e6;
+  height: 54rpx;
+  border-radius: 54rpx;
+  font-size: 24rpx;
+  color: #4c4c4c;
+  padding: 0 17rpx;
+  line-height: 54rpx;
+}
+.search_house .search_house_term > view picker{
+   display: flex;
+  flex-direction:row; 
+  width: auto;
+}
+.search_house .search_house_term > view text{
+   vertical-align: middle; 
+   overflow: hidden;  
+   max-width: 97rpx;
+   white-space: nowrap; 
+   display: inline-block;
+   text-overflow:ellipsis;
+}
+.search_house .search_house_term > view image{
+  width: 19rpx;
+  height: 12rpx;
+  padding-left: 8rpx; 
+}
+.house_into{
+  margin: 0 38rpx;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.house_into view{
+  display: flex;
+  flex-direction:column;
+  margin-bottom: 70rpx;
+}
+.house_into view image{
+  width: 88rpx;
+  height: 88rpx;
+  margin: auto;
+}
+.house_into view text{
+  font-size: 26rpx;
+  color: #666;
+  text-align: center;
+  padding-top: 17rpx;
+}
+
+.list_title{
+  margin: 0 38rpx;
+  padding-bottom: 37rpx;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.list_title > text{
+  font-size: 44rpx;
+  line-height: 66rpx;
+}
+.list_title .list_title_morehouse{
+  font-size: 26rpx;
+  color: #9f9f9f;
+  position: absolute;
+  right: 0;
+  line-height: 66rpx;
+}
+.list_title .list_title_morehouse image{
+  width: 11rpx;
+  height: 20rpx;
+  padding-left: 10rpx;
+}
+.list_item_out{
+  border-top: 1rpx solid #e5e5e5; 
+  margin: 0 0 0 38rpx;
+}

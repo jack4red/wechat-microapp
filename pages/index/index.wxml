@@ -1,0 +1,93 @@
+<import src="../../template/custom.wxml"/>
+<view>
+  <!--banner图部分  -->
+  <view class='banner'>
+    <image src='../../img/banner.png'></image>
+    <!-- <navigator url=''> -->
+      <view class='location' bindtap='navigator' data-url="../../pages/city/city">
+        <image src='../../img/local.png'></image>
+        <text>{{cityname}}</text>
+      </view>
+    <!-- </navigator> -->
+    <text class='banner_text'>品质租房 让您住的更好</text>
+  </view>
+  <!--快速找房部分  -->
+  <view class='search_house'>
+    <view class='search_house_term'>
+        <!--位置  -->
+        <view class="section">
+          <picker bindchange="pickerChange" range-key='title' range="{{searchConfig.street}}" value="{{picker_index}}" data-key="street">
+            <text class="picker">{{show.street}}</text>
+            <image src='../../img/dropdown.png'></image>
+          </picker>
+        </view>
+        <!--出租方式  -->
+        <view class="section">
+          <picker bindchange="pickerChange" value='{{picker_index}}' range="{{searchConfig.lease_mode}}" data-key="lease_mode">
+            <text class="picker">{{show.lease_mode}}</text>
+            <image src='../../img/dropdown.png'></image>
+          </picker>
+        </view> 
+        <!--租金  -->
+        <view class="section">
+          <picker bindchange="pickerChange" range-key='value' value='{{picker_index}}' range="{{searchConfig.rental_range}}" data-key="rental_range">
+            <text class="picker">{{show.rental_range}}</text>
+            <image src='../../img/dropdown.png'></image>
+          </picker>
+        </view>
+        <!--来源  -->
+        <view class="section">
+          <picker bindchange="pickerChange" value='{{picker_index}}' range="{{searchConfig.house_comefrom}}" data-key="house_comefrom">
+            <text class="picker">{{show.house_comefrom}}</text>
+            <image src='../../img/dropdown.png'></image>
+          </picker>
+        </view>
+    </view>
+    <view class='house_button' bindtap='quire_house' data-url="../../pages/list/list">快速找房</view>
+  </view>
+  <!--房源入口  -->
+  <view class='house_into'>
+    <view data-url='../../pages/list/list' data-key='lease_mode' data-value='1' data-index='1' bindtap='navigator'> 
+      <image src='../../img/icon1.png'></image>
+      <text>整租</text>
+    </view>
+    <view data-url='../../pages/list/list' data-key='lease_mode' data-value='2' data-index='2' bindtap='navigator'>
+      <image src='../../img/icon2.png'></image>
+      <text>合租</text>
+    </view>
+    <view data-url='../../pages/list/list' data-key='house_comefrom' data-value='1' data-index='1' bindtap='navigator'>
+      <image src='../../img/icon3.png'></image>
+      <text>品牌公寓</text>
+    </view>
+    <view data-url='../../pages/list/list' data-key='house_comefrom' data-value='2' data-index='2' bindtap='navigator'>
+      <image src='../../img/icon4.png'></image>
+      <text>个人房源</text>
+    </view>
+    <view data-url='../../pages/list/list' data-key='special' data-value='999' bindtap='navigator'>
+      <image src='../../img/icon5.png'></image>
+      <text>爱租月付</text>
+    </view>
+  </view>
+  <!--房源列表  -->
+  <view class='house_list'>
+    <view class='list_title'>
+      <text>推荐房源</text>
+      <navigator url='../../pages/list/list'>
+        <view class='list_title_morehouse'>
+          <text>更多房源</text>
+          <image src='../../img/dropdownR.png'></image>
+        </view>
+      </navigator>
+    </view>
+    <!--房源列表内容  -->
+    <view wx:for="{{houseList}}" wx:key="house_list">      
+      <navigator url="/pages/detailPages/detailPages?h_id={{item.h_id}}&r_id={{item.r_id}}&house_comefrom={{item.house_comefrom}}&l_id={{item.l_id}}&city={{item.city}}">
+        <template is="house_list" data="{{item}}" />
+      </navigator>
+    </view>
+  </view>
+
+  <!--picker下拉框组件部分 start  -->
+  
+  <!--picker下拉框组件部分 end  -->
+</view>

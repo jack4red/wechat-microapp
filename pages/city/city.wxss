@@ -1,0 +1,58 @@
+page{
+  background: #efeff4;
+}
+.city_title{
+  font-size: 24rpx;
+  color: #666666;
+  height: 61rpx;
+  line-height: 61rpx;
+  padding: 0 38rpx;
+}
+.city_con{
+  background: #fff;
+  overflow: hidden;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.city_con_left{
+  margin-left: 38rpx;
+  float: left;
+}
+.city_con_left image{
+  width: 24rpx;
+  height: 32rpx;
+  vertical-align: middle;
+}
+.city_con_left text{
+  font-size: 30rpx;
+  color: #333;
+  padding-left: 12rpx;
+}
+.city_con_right{
+  margin-right: 38rpx;
+  float: right;
+}
+.city_con_right image{
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+}
+.city_con_right text{
+  font-size: 24rpx;
+  color: #666;
+  padding-left: 12rpx;
+}
+.all_citys{
+  background: #fff;
+}
+.city_con_list{
+  padding:0 38rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #333333;
+  font-size: 30rpx;
+}
+.city_con_list.active{
+  color: #ff9000;
+}

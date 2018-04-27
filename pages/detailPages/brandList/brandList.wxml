@@ -1,0 +1,39 @@
+<view class="brandShow">
+  <image class="brandLogo" src="{{companyInfo.logo ? companyInfo.logo : '/img/d_logo.png'}}"></image>
+  <view class="brandName">{{companyInfo.companyid}}</view>
+  <view class="dark-font text-box {{isShowAll ? '' : 'text-hid'}} {{show ? '' : 'hidden'}}" id="view">{{companyInfo.remark}}</view>
+  <view class="arrow-box" bindtap="showAll" style="{{companyInfo.remark.length > 0 && isShowArrow ? 'display:block' : 'display:none'}}">
+    <image src="{{isShowAll ? '/img/dropup.png' : '/img/dropdown.png'}}" class="arrowUp"></image>
+  </view>
+</view>
+<!--品牌公寓房源列表  -->
+<view class="listBox">
+  <view class="title">最新房源</view>
+  <view class="houseList" style="{{houseList.length > 0 ? 'display:block' : 'display:none'}}">
+    <view  class="bg-style cl"  wx:for="{{houseList}}" wx:key="*this" bindtap="checkhouse" 
+      data-h_id="{{item.h_id}}" data-l_id="{{item.l_id}}" data-r_id="{{item.r_id}}" data-house_comefrom="{{item.house_comefrom}}">
+      <view class="imgBox fl">
+        <image src="{{item.imgUrls}}"></image>
+      </view>
+      <view class="infoBox fl">
+        <view class="size-32 text-overflow black-font">{{companyInfo.l_id ? item.l_name : item.house_title}}</view>
+        <view class="cl price">
+          <view class="fl size-22 ">{{companyInfo.l_id?item.l_room:item.room}}室{{companyInfo.l_id?item.l_hall:item.hall}}厅 {{companyInfo.l_id? item.l_acreage : item.r_acreage}}㎡ {{companyInfo.l_id ? '' : orientation[item.renovation_id]}}</view>
+          <view class="fr size-26 yellow-font" style="{{companyInfo.l_id ? 'display:none':'display:block'}}">{{item.rent}}元/月</view>
+        </view>
+        <view class="size-22 dark-font">{{companyInfo.l_id ? '剩余' + item.total + '间' : item.distance_subway}}</view>
+        <view class="size-20 blue-font iconBox" style="{{companyInfo.l_id ? 'display:none':'display:block'}}">
+          <view wx:for="{{item.houseSpecial}}" wx:key="{{key}}" class="{{item.key == 0 ? 'advantage1' : ''}}">{{item.value}}</view>
+        </view>
+        <view class="priceRange" style="{{companyInfo.l_id ? 'display:block':'display:none'}}">{{item.l_rent_low == item.l_rent_high ? item.l_rent_low : item.l_rent_low + '-' + item.l_rent_high}}<text class="size-20">元/月</text></view>
+      </view>
+    </view>
+  </view>
+  <view class="no_house" style="{{houseList.length == 0 ? 'display:block' : 'display:none'}}">
+    <image src="/img/404-2.png"></image>
+    <view>当前无信息</view>
+  </view>
+</view>
+<view class="checkmore" bindtap="checkMoreHouse" style="{{companyInfo.data.length <= 10 ? 'display:none' : 'display:block'}}">
+  查看更多房源
+</view>

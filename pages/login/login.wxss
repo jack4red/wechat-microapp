@@ -1,0 +1,99 @@
+/**index.wxss**/
+.login-container .head-img{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  margin: 100rpx auto 63rpx auto;
+  display: block;
+}
+.login-container .tel-container .section{
+  width: 690rpx;
+  height: 98rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  margin: 0 auto;
+  display:flex;
+  align-items:center;
+}
+.login-container .tel-container .section input{
+  padding-left: 20rpx;
+  font-size: 30rpx;
+  height: 60rpx;
+}
+input:-moz-placeholder,input:-ms-input-placeholder,input::-webkit-input-placeholder{
+  color: #bfbfbf;
+}
+.login-container .tel-container .section .tel-input{
+  width: 100%;
+}
+.login-container .tel-container .section .code-input{
+  width: 500rpx;
+  box-sizing: border-box;
+  border-right: 1rpx solid #e5e5e5;
+}
+.login-container .tel-container .section .button{
+  font-size: 28rpx;
+  width: 190rpx;
+  text-align: center;
+  display: inline-block;
+}
+.login-container .loginbtn{
+  width: 690rpx;
+  margin: 80rpx auto;
+  color: white;
+  background: #ffa42f;
+}
+
+.login-container .loginbtn[disabled]:not([type]){
+  background: #ffd197;
+  color: white;
+}
+
+.login-container button::after{
+  border: none;
+}
+
+.login-container .split{
+  margin: 140rpx auto 60rpx auto;
+  font-size: 24rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  text-align: center;
+  width: 690rpx;
+  color: #bfbfbf;
+}
+
+.login-container .split::before{
+  content: '';
+  display: inline-block;
+  height: 0;
+  width: 240rpx;
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: none;
+  vertical-align: middle;
+  margin-right: 15rpx;
+}
+
+.login-container .split::after{
+  vertical-align: middle;
+  content: '';
+  display: inline-block;
+  height: 0;
+  width: 240rpx;
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: none;
+  margin-left: 15rpx;
+}
+
+.login-container .weixin-loginbtn{
+  width: 690rpx;
+  background: #00ae66;
+  color: white;
+}
+
+.login-container .weixin-loginbtn image{
+  width: 43rpx;
+  height: 35rpx;
+  margin-right: 5rpx;
+  position: relative;
+  top: 5rpx;
+}

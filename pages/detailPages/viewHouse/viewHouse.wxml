@@ -1,0 +1,43 @@
+<view>
+  <view id="houseInfo" class="bg-style">
+    <view class="imgBox">
+      <image src="{{houseInfo.imgUrls[0]}}"></image>
+    </view>
+    <view class="infoBox">
+      <view class="size-32 text-overflow black-font">{{houseInfo.house_title}}</view>
+      <view class="cl price">
+        <view class="fl size-22 ">
+          {{houseInfo.room}}室{{houseInfo.hall}}厅  {{houseInfo.r_acreage}}㎡
+        </view>
+        <view class="fr size-26 yellow-font">{{houseInfo.all_rent}}元/月</view>
+      </view>
+      <view class="size-22 dark-font">{{houseInfo.distance_subway ? houseInfo.distance_subway : ''}}</view>
+      <view class="size-20 blue-font iconBox" >
+        <view wx:for="{{houseInfo.houseSpecial}}" wx:key="{{key}}" class="{{item.key == 0 ? 'advantage1' : ''}}">{{item.value}}</view>
+      </view>
+    </view>
+  </view>
+  <form bindsubmit="formSubmit" id="info">
+    <view class="bg-style p">
+      <view class="cl phoneInfo">
+        <view class="phoneTxt fl">联系方式</view>
+        <input placeholder="请输入手机号码" value="{{phone}}"
+          type="number" placeholder-style="color:#a6a6a6" class="phoneInput fr" name="phone" bindinput="phone"/>
+      </view>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange"   range="{{multiArray}}" range-key="value">
+        <view class="cl resonInfo picker">
+          <view class="fl">看房时间</view>
+          <view class="fr cl selectReson">
+            <view class="fl" style="{{time === '请选择' ? 'color:#a6a6a6' : 'color:#333'}}">{{time}}</view>
+            <image src="../../../img/arrow-r.png" class="fl"></image>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="alert bg-style p">
+      <image src="/img/icon-1.png"></image>
+      <text class="size-24">提交预约信息后，将有客服人员电话与您沟通详细情况</text>
+    </view>
+    <button disabled="{{canSubmit}}" formType="submit">提交预约</button>
+  </form>
+</view>

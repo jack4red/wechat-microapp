@@ -1,0 +1,118 @@
+<!--pages/my_coupon/my_coupon.wxml-->
+<view class='coupon-container'>
+  <view class='tabs'>
+    <view class='tab-item {{tabs[0]}}' data-index='0' bindtap='tabtap'>未使用</view>
+    <view class='tab-item {{tabs[1]}}' data-index='1' bindtap='tabtap'>已使用</view>
+    <view class='tab-item {{tabs[2]}}' data-index='2' bindtap='tabtap'>已过期</view>
+  </view>
+  <block wx:for="{{[0,1,2]}}" wx:key="*this" wx:for-item="i">
+    <view class='panel {{panels[i]}}'>
+      <block wx:if="{{coupons[i].length != 0}}">
+        <block wx:for="{{coupons[i]}}" wx:key="*this">
+          <view class='coupon-item {{item.isActive?"active":""}}' data-i='{{i}}' data-index='{{index}}' bindtap='toggleActive'>
+            <view class='main'>
+              <view class='title'>{{item.card_name}}</view>
+              <view class='validity'>有效期：{{item.card_startTime}}至{{item.card_endTime}}</view>
+              <view class='use-rule'>使用规则
+                <image class='arrow' src='../../img/bottom-arrow.png'></image>
+              </view>
+            </view>
+            <block wx:if="{{i == 0}}">
+              <image class='code' src='../../img/coupon.png'></image>
+            </block>
+            <block wx:elif="{{i == 1}}">
+              <image class='code' src='../../img/out-coupon.png'></image>
+              <image class='used' src='../../img/used-coupon.png'></image>
+            </block>
+            <block wx:elif="{{i == 2}}">
+              <image class='code' src='../../img/out-coupon.png'></image>
+            </block>
+            <view class='code-text'>
+              <text>验证码</text>
+              <text>{{item.cdkey_info}}</text>
+            </view>
+            <view class='rule'>
+              <block wx:for="{{item.card_description}}" wx:key="*this" wx:for-item="t">
+                <view>{{t}}</view>
+              </block>
+            </view>
+          </view>
+        </block>
+      </block>
+      <block wx:elif="coupons[i].length == 0">
+        <view class='not-found'>
+          <image src='../../img/404-1.png'></image>
+          <view class='text'>暂无优惠券</view>
+        </view>
+      </block>
+      <block wx:else></block>
+    </view>
+  </block>
+  <!-- <view class='panel {{panels[0]}}'>
+    <view class='coupon-item'>
+      <view class='main'>
+        <view class='title'>双节大放价200元租房抵用券支付享优惠</view>
+        <view class='validity'>有效期：2018-03-01至2018-05-01</view>
+        <view class='use-rule'>使用规则
+          <image class='arrow' src='../../img/bottom-arrow.png'></image>
+        </view>
+      </view>
+      <image class='code' src='../../img/coupon.png'></image>
+      <view class='code-text'>
+        <text>验证码</text>
+        <text>822583</text>
+      </view>
+      <view class='rule'>在门店使用抵用券支付享优惠</view>
+    </view>
+    <view class='coupon-item active'>
+      <view class='main'>
+        <view class='title'>双节大放价200元租房抵用券支付享优惠</view>
+        <view class='validity'>有效期：2018-03-01至2018-05-01</view>
+        <view class='use-rule'>使用规则
+          <image class='arrow' src='../../img/bottom-arrow.png'></image>
+        </view>
+      </view>
+      <image class='code' src='../../img/coupon.png'></image>
+      <view class='code-text'>
+        <text>验证码</text>
+        <text>822583</text>
+      </view>
+      <view class='rule'>在门店使用抵用券支付享优惠</view>
+    </view>
+  </view>
+  <view class='panel {{panels[1]}}'>
+    <view class='coupon-item'>
+      <view class='main'>
+        <view class='title'>双节大放价200元租房抵用券支付享优惠</view>
+        <view class='validity'>有效期：2018-03-01至2018-05-01</view>
+        <view class='use-rule'>使用规则
+          <image class='arrow' src='../../img/bottom-arrow.png'></image>
+        </view>
+      </view>
+      <image class='code' src='../../img/out-coupon.png'></image>
+      <image class='used' src='../../img/used-coupon.png'></image>
+      <view class='code-text'>
+        <text>验证码</text>
+        <text>822583</text>
+      </view>
+      <view class='rule'>在门店使用抵用券支付享优惠</view>
+    </view>
+  </view>
+  <view class='panel {{panels[2]}}'>
+    <view class='coupon-item'>
+      <view class='main'>
+        <view class='title'>双节大放价200元租房抵用券支付享优惠</view>
+        <view class='validity'>有效期：2018-03-01至2018-05-01</view>
+        <view class='use-rule'>使用规则
+          <image class='arrow' src='../../img/bottom-arrow.png'></image>
+        </view>
+      </view>
+      <image class='code' src='../../img/out-coupon.png'></image>
+      <view class='code-text'>
+        <text>验证码</text>
+        <text>822583</text>
+      </view>
+      <view class='rule'>在门店使用抵用券支付享优惠</view>
+    </view>
+  </view> -->
+</view>

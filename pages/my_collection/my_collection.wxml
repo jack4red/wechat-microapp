@@ -1,0 +1,53 @@
+<!--pages/my_collection.wxml-->
+<import src="../../template/custom.wxml" />
+<block wx:if="{{houses.length != 0}}">
+  <view class='collection-container'>
+    <block wx:for="{{houses}}" wx:key="house_list">
+    <view class='item {{item.online==0?"offline":""}}' style='left:{{item.isDelete?item.isDelete:0}}' data-index='{{index}}' bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd'>
+      <navigator url='{{item.online==0?"":"/pages/detailPages/detailPages?h_id=" + item.h_id + "&r_id=" + item.r_id + "&house_comefrom=" + item.house_comefrom + "&l_id=" + item.l_id + "&city=" + city}}'>
+        <view class='list_item_out'>
+          <view class='list_item'>
+            <view class='item_image'>
+              <view>
+                <image src='{{item.list_images}}'></image>
+              </view>
+              <block wx:if="{{item.online==0}}">
+                <view class='offline_tip'>已下架</view>
+              </block>
+              <!-- <view class='hui_tip'>惠</view> -->
+            </view>
+            <view class='item_right'>
+              <view class='list_hang1'>
+                <text>{{item.house_title}}</text>
+              </view>
+              <view class='list_hang2'>
+                <text>{{item.room}}室{{item.hall}}厅</text>
+                <text>{{item.acreage}}㎡</text>
+              </view>
+              <view class='list_hang3'>
+                <text>{{item.xiaoqu_info.xdistrict_name?item.xiaoqu_info.xdistrict_name + ' ':''}}{{item.xiaoqu_info.xstreet_name?item.xiaoqu_info.xstreet_name:''}}</text>
+              </view>
+              <view class='list_hang4'>
+                <block wx:for="{{item.special}}" wx:key="*this" wx:for-item="t">
+                  <text class="{{t == '公寓' ? 'gongyu' : ''}}">{{t}}</text>
+                </block>
+              </view>
+              <view class='list_position'>{{item.rent}}
+                <text>元/月</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+      <view class='delete' data-index='{{index}}' bindtap='deleteBtn'>删除</view>
+      </view>
+    </block>
+  </view>
+</block>
+<block wx:elif="{{houses.length == 0}}">
+  <view class='not-found'>
+    <image src='../../img/404-2.png'></image>
+    <view class='text'>你尚未收藏任何房源哦~</view>
+  </view>
+</block>
+<block wx:else></block>

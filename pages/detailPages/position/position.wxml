@@ -1,0 +1,17 @@
+<view id="container">
+  <view id="map-box">
+    <!-- map.wxml -->
+     <map id="map" longitude="{{markers[0].longitude}}" latitude="{{markers[0].latitude}}"  scale="14" 
+     style="width: 100%;height:100%;" markers="{{markers}}" 
+     data-lon="{{markers[0].longitude}}" data-lat="{{markers[0].latitude}}"></map> 
+  </view>
+  <view id="mapInfo">
+    <view class="mapInfo">
+      <view class="size-38">[地址]</view>
+      <view class="size-24">{{markers[0].adr}}</view>
+    </view>
+    <view class="navigation">
+      <image src="/img/navigation.png" bindtap="gohere"></image>
+    </view>
+  </view>
+</view>

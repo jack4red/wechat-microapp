@@ -1,0 +1,102 @@
+/* pages/my_order/my_order.wxss */
+@import "../../template/custom.wxss";
+
+page{
+    background: #efeff4;
+}
+.order-container .tabs{
+  width: 100%;
+  height: 88rpx;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+.order-container .tab-item{
+  height: 87rpx;
+  font-size: 30rpx;
+  padding: 0 30rpx;
+  line-height: 88rpx;
+  border-bottom: 1rpx solid transparent;
+}
+.order-container .tab-item.active{
+  border-bottom: 1rpx solid #ffa229;
+  color: #ffa229;
+}
+.order-container .panel{
+  margin-top: 108rpx;
+  display: none;
+}
+.order-container .panel.active{
+  display: block;
+}
+.order-container .panel-item{
+  width: 710rpx;
+  height: 360rpx;
+  margin: 20rpx auto;
+  background: white;
+  overflow: hidden;
+}
+.order-container .panel-item navigator{
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.order-container .panel-item navigator .list_item_out{
+  margin: 0 0 0 33rpx;
+}
+.order-container .panel-item .house-info{
+  height: 120rpx;
+  width: 510rpx;
+  padding: 0 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  font-size: 22rpx;
+  color: #aaa;
+}
+.order-container .panel-item .house-info text{
+  display: block;
+  margin-top: 20rpx;
+}
+.order-container .panel-item .order-button{
+  display: inline-block;
+  width: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  padding: 0;
+  vertical-align: top;
+  margin-top: 30rpx;
+}
+
+.order-container .panel-item .list_item .item_right .list_position {
+  right: 0;
+}
+
+
+.list_item .item_image .offline_tip{
+  position: absolute;
+  left: 0rpx;
+  top: 0rpx;
+  width: 70rpx;
+  height: 28rpx;
+  color: #fff;
+  background: #999;
+  font-size: 18rpx;
+  line-height: 28rpx;
+  text-align: center;
+}
+
+.offline .list_hang1 text,.offline .list_hang2 text,.offline .list_hang3 text{
+  color: #ccc;
+}
+
+.order-container .list_hang4{
+  white-space:nowrap;
+}
+
+.order-container .list_item {
+  margin-right:8rpx;
+}

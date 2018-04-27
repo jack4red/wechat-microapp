@@ -1,0 +1,119 @@
+<!--pages/my_order/my_order.wxml-->
+<view class='order-container'>
+  <view class='tabs'>
+    <view class='tab-item {{tabs[0]}}' data-index='0' bindtap='tabtap'>当前预约</view>
+    <view class='tab-item {{tabs[1]}}' data-index='1' bindtap='tabtap'>历史预约</view>
+  </view>
+  <block wx:for="{{[0,1]}}" wx:key="*this" wx:for-item="i">
+    <view class='panel {{panels[i]}}'>
+      <block wx:if="{{i==0?currentOrder.length != 0:historyOrder.length != 0}}">
+        <block wx:for="{{i==0?currentOrder:historyOrder}}" wx:key="house_list">
+          <view class='panel-item {{item.online==0?"offline":""}}'>
+            <navigator url='{{item.online==0?"":"/pages/detailPages/detailPages?h_id=" + item.h_id + "&r_id=" + item.r_id + "&house_comefrom=" + item.house_comefrom + "&l_id=" + item.l_id + "&city=" + city}}'>
+              <view class='list_item_out'>
+                <view class='list_item'>
+                  <view class='item_image'>
+                    <view>
+                      <image src='{{item.list_images}}'></image>
+                    </view>
+                    <block wx:if="{{item.online==0}}">
+                      <view class='offline_tip'>已下架</view>
+                    </block>
+                    <!-- <view class='hui_tip'>惠</view> -->
+                  </view>
+                  <view class='item_right'>
+                    <view class='list_hang1'>
+                      <text>{{item.house_title}}</text>
+                    </view>
+                    <view class='list_hang2'>
+                      <text>{{item.room}}室{{item.hall}}厅</text>
+                      <text>{{item.acreage}}㎡</text>
+                    </view>
+                    <view class='list_hang3'>
+                      <text>{{item.xiaoqu_info.xdistrict_name?item.xiaoqu_info.xdistrict_name + ' ':''}}{{item.xiaoqu_info.xstreet_name?item.xiaoqu_info.xstreet_name:''}}</text>
+                    </view>
+                    <view class='list_hang4'>
+                      <block wx:for="{{item.special}}" wx:key="*this" wx:for-item="t">
+                        <text class="{{t == '公寓' ? 'gongyu' : ''}}">{{t}}</text>
+                      </block>
+                    </view>
+                    <view class='list_position'>{{item.rent}}
+                      <text>元/月</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </navigator>
+            <view class='house-info'>
+              <text>预约时间：{{item.order_time}}</text>
+              <text>实际时间：{{item.sure_look_time == "0"?"待确认，等待客服联系":item.sure_look_time}}</text>
+            </view>
+            <block wx:if="{{item.status == '0'}}">
+              <button class='order-button' bindtap='cancelOrder' data-id='{{item.id}}' data-index='{{index}}'>取消预约</button>
+            </block>
+            <block wx:elif="{{item.status == '1'}}">
+              <button class='order-button' disabled='disabled'>预约成功</button>
+            </block>
+            <block wx:elif="{{item.status == '2'}}">
+              <button class='order-button' disabled='disabled'>预约失败</button>
+            </block>
+            <block wx:elif="{{item.status == '3'}}">
+              <button class='order-button' disabled='disabled'>已取消</button>
+            </block>
+          </view>
+        </block>
+      </block>
+      <block wx:elif="{{i==0?(currentOrder.length == 0):(historyOrder.length == 0)}}">
+        <view class='not-found'>
+          <image src='../../img/404-2.png'></image>
+          <view class='text'>当前暂无预约信息</view>
+        </view>
+      </block>
+      <block wx:else></block>
+    </view>
+  </block>
+  <!-- <view class='panel {{panels[0]}}'>
+    <view class='panel-item'>
+      <navigator src="">
+        <template is="house_list" />
+      </navigator>
+      <view class='house-info'>
+        <text>预约时间：2018-03-17 周六下午（14:00 -18:00 ）</text>
+        <text>实际时间：待确认，等待客服联系</text>
+      </view>
+      <button class='order-button'>取消预约</button>
+    </view>
+    <view class='panel-item'>
+      <navigator src="">
+        <template is="house_list" />
+      </navigator>
+      <view class='house-info'>
+        <text>预约时间：2018-03-17 周六下午（14:00 -18:00 ）</text>
+        <text>实际时间：待确认，等待客服联系</text>
+      </view>
+      <button class='order-button'>取消预约</button>
+    </view>
+  </view>
+  <view class='panel {{panels[1]}}'>
+    <view class='panel-item'>
+      <navigator src="">
+        <template is="house_list" />
+      </navigator>
+      <view class='house-info'>
+        <text>预约时间：2018-03-17 周六下午（14:00 -18:00 ）</text>
+        <text>实际时间：待确认，等待客服联系</text>
+      </view>
+      <button class='order-button' disabled='disabled'>已取消</button>
+    </view>
+    <view class='panel-item'>
+      <navigator src="">
+        <template is="house_list" />
+      </navigator>
+      <view class='house-info'>
+        <text>预约时间：2018-03-17 周六下午（14:00 -18:00 ）</text>
+        <text>实际时间：待确认，等待客服联系</text>
+      </view>
+      <button class='order-button' disabled='disabled'>已取消</button>
+    </view>
+  </view> -->
+</view>

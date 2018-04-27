@@ -1,0 +1,33 @@
+<view class='my-container'>
+    <view class='login-bar' bindtap='checkLogin'>
+        <image class='head-img' src='{{headImg}}'></image>
+        <view class='login-info'>{{loginName}}</view>
+    </view>
+    <view class='items'>
+        <view class='item collection-house' bindtap='checkLogin' data-url='/pages/my_collection/my_collection'>
+            <view class='border'>
+              <image class='icon' src='../../img/my-icon-star.png'></image>
+              <view class='text'>收藏房源</view>
+              <view class='num'>{{isLogin?collectionNum + '条':''}}</view>
+              <image class='arrow' src='../../img/dropdownR.png'></image>
+            </view>
+        </view>
+        <view class='item my-order' bindtap='checkLogin' data-url='/pages/my_order/my_order'>
+            <view class='border'>
+              <image class='icon' src='../../img/my-icon-calender.png'></image>
+              <view class='text'>我的预约</view>
+              <view class='num'>{{isLogin?orderNum + '条':''}}</view>
+              <image class='arrow' src='../../img/dropdownR.png'></image>
+            </view>
+        </view>
+        <view class='item my-coupon' bindtap='checkLogin' data-url='/pages/my_coupon/my_coupon'>
+            <view class='border'>
+              <image class='icon' src='../../img/my-icon-tag.png'></image>
+              <view class='text'>我的优惠</view>
+              <image class='arrow' src='../../img/dropdownR.png'></image>
+            </view>
+        </view>
+    </view>
+
+    <button class='logout' wx:if="{{isLogin}}" bindtap='logout'>退出登录</button>
+</view>

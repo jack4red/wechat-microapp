@@ -1,0 +1,68 @@
+/* pages/my_collection.wxss */
+@import "../../template/custom.wxss";
+
+page {
+  background: #efeff4;
+}
+
+.collection-container {
+  background: white;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.collection-container .list_item_out {
+  border-top: none;
+  border-bottom: 1rpx solid #e5e5e5;
+  height:240rpx;
+}
+
+.collection-container navigator:last-child .list_item_out {
+  border-bottom: none;
+}
+
+.collection-container .item navigator {
+  display: inline-block;
+  width: 750rpx;
+  height: 240rpx;
+  /* float: left; */
+}
+
+.collection-container .item {
+  position: relative;
+  transition: all 0.3s;
+  /* display: block; */
+  white-space: nowrap;
+  display: flex;
+  height: 240rpx;
+  width: 928rpx;
+  align-items: center;
+}
+
+.collection-container .delete {
+  width: 178rpx;
+  height: 240rpx;
+  display: inline-block;
+  background: #f34343;
+  color: white;
+  text-align: center;
+  font-size: 32rpx;
+  line-height: 240rpx;
+}
+
+.list_item .item_image .offline_tip {
+  position: absolute;
+  left: 0rpx;
+  top: 0rpx;
+  width: 70rpx;
+  height: 28rpx;
+  color: #fff;
+  background: #999;
+  font-size: 18rpx;
+  line-height: 28rpx;
+  text-align: center;
+}
+
+.offline .list_hang1 text, .offline .list_hang2 text, .offline .list_hang3 text {
+  color: #ccc;
+}

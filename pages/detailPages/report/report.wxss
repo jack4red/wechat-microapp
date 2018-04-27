@@ -1,0 +1,76 @@
+
+#info{
+  color:#4c4c4c;
+  font-size:28rpx;
+  padding-left:40rpx;
+  display: block;
+}
+#info .phoneInfo,#info .resonInfo{
+  height:90rpx;
+  line-height: 90rpx;
+  border-bottom:1px solid #e5e5e5;
+}
+#info .phoneTxt,#info .phoneInput{
+  height:90rpx;
+  line-height: 90rpx;
+  text-align: right;
+}
+#info .phoneInput{
+  width:247rpx;
+  padding-right:40rpx;
+}
+.selectReson{
+  padding-right:40rpx;
+  color:#a6a6a6;
+}
+.selectReson image{
+  height:20rpx;
+  width:11rpx;
+  margin-left:20rpx;
+  margin-top:37rpx;
+}
+textarea{
+  border-bottom:1px solid #e5e5e5;
+  padding:30rpx 55rpx 64rpx 15rpx;
+  margin-bottom:34rpx;
+  box-sizing: border-box;
+  width:100%;
+}
+.moreReason{
+  position:relative;
+}
+.countNum{
+  color:#a6a6a6;
+  font-size:24rpx;
+  position:absolute;
+  bottom:28rpx;
+  right:40rpx;
+}
+.imgBox .uploadBtn,.imgBox .img{
+  width:158rpx;
+  height:160rpx;
+  border:1px dashed #e5e5e5;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom:45rpx;
+}
+.imgBox .img{
+  margin-right:30rpx;
+  position:relative;
+}
+.imgBox .img image{
+  height:100%;
+  width:100%;
+}
+.imgBox .uploadBtn image{
+  width:100%;
+  height:100%;
+}
+button{
+  background:#f4a236;
+  margin-right:40rpx;
+  border:none;
+  color:#fff;
+  font-size:36rpx;
+  outline: none;
+}

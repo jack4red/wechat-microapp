@@ -1,0 +1,12 @@
+<movable-area id="imgBox" style="height:100%;width:100%">
+  <movable-view style="height:100%;width:100%" scale-area="true" scale-min="1" scale-max="3" scale="true" direction="all"
+    inertia="true" scale-value="{{scaleValue}}" bindtouchmove="touchmove" bindtouchstart="touchstart" bindscale="onScale">
+    <swiper style="height:500rpx;width:100%;padding-top:200rpx" bindchange="swiperChange" current="{{carouselPageIndex}}">
+      <block wx:for="{{carouselPageImages}}" wx:key="*this">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" mode="widthFix" style="width:100%"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </movable-view >
+</movable-area>

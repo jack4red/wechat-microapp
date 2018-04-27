@@ -1,0 +1,122 @@
+/*清除浮动  */
+.cl:after{
+  content: '';
+  display: block;
+  clear:both;
+  line-height: 0px;
+  height:0px;
+  width:0px;
+}
+.fl{
+  float:left;
+}
+.fr{
+  float:right;
+}
+.inline-block{
+  display: inline-block;
+}
+.text-overflow{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: normal;
+}
+/*黄色字体  */
+.yellow-font{
+  color:#ff9000;
+}
+/*蓝色字体  */
+.blue-font{
+  color:#4f98ff;
+}
+/*青色字体  */
+.blue-font-1{
+  color:#22c1d3;
+}
+/*暗色字体  */
+.dark-font{
+  color:#666666;
+}
+/*黑色字体  */
+.black-font{
+  color:#333;
+}
+/*灰色字体  */
+.gray-font{
+  color:#9f9f9f;
+  font-weight: 400;
+}
+/*字体大小  */
+.size-38{
+  font-size:38rpx;
+}
+.size-32{
+  font-size:32rpx;
+}
+.size-34{
+  font-size:34rpx;
+}
+.size-30{
+  font-size:30rpx;
+}
+.size-26{
+  font-size:26rpx;
+}
+.size-20{
+  font-size:20rpx;
+}
+.size-22{
+  font-size:22rpx;
+}
+.size-24{
+  font-size:24rpx;
+}
+/*小标签  */
+.small-label{
+  display: inline-block;
+  vertical-align:-13%;
+  height:24rpx;
+  width:24rpx; 
+  padding-left:2rpx;
+}
+/*左右箭头  */
+.arrowL{
+  height:20rpx;
+  width:11rpx;
+}
+/*上下箭头  */
+.arrowUp{
+  height:11rpx;
+  width:20rpx;
+}
+
+.not-found{
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 450rpx;
+  align-items: center;
+}
+
+.not-found image{
+  width: 160rpx;
+  height: 160rpx;
+  display: block;
+}
+.not-found .text{
+  font-size: 24rpx;
+  margin-top: 30rpx;
+}
+/*文本最多显示3行，多了省略  */
+.text-hid{
+  display: flex;
+  flex-direction:column;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:3;
+  -moz-line-clamp:3;
+  -o-line-clamp:3;
+  -ms-line-clamp:3;
+}

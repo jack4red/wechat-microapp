@@ -1,0 +1,47 @@
+<!--pages/custom/custom.wxml-->
+<!--房源列表 -->
+<template name="house_list">
+  <view class='list_item_out'>
+    <view class='list_item'>
+      <view class='item_image'>
+        <view>
+          <image src='{{item.list_images}}'></image>
+        </view>
+        <view class='hui_tip' wx:if="{{item.hasYh}}">惠</view>
+        <!--
+        <view class='hui_tip' wx:if="{{item.house_comefrom == '1'}}">寓</view>
+        <view class='hui_tip' wx:if="{{item.house_comefrom == '2'}}">个</view>
+        <view class='hui_tip' wx:if="{{item.lease_mode == '1'}}">整</view>
+        <view class='hui_tip' wx:if="{{item.lease_mode == '2'}}">合</view>
+        -->
+      </view>
+      <view class='item_right'>
+        <view class='list_hang1'>
+          <text>{{item.house_title}}</text>
+        </view>
+        <view class='list_hang2'>
+          <text>{{item.room}}室{{item.hall}}厅</text>
+          <text>{{item.acreage}}㎡</text>
+        </view>
+        <view class='list_hang3'>
+          <block wx:if="{{item.distance_subway}}">
+            <text>{{item.distance_subway}}</text>
+          </block>
+          <block wx:else>
+            <text>{{item.xiaoqu_info.xdistrict_name + ' '}}</text>
+            <text>{{item.xiaoqu_info.xstreet_name}}</text>
+          </block>
+        </view>
+        <view class='list_hang4'>
+          <block wx:for="{{item.special}}" wx:key="*this" wx:for-item="t">
+            <text class="{{t == '公寓' ? 'gongyu' : ''}}">{{t}}</text>
+          </block>
+        </view>
+        <view class='list_position'>{{item.rent}}
+          <text>{{item.rent_intro}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+<!--轮播图  -->

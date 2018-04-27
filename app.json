@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detailPages/viewHouse/viewHouse",
+    "pages/detailPages/position/position",
+    "pages/detailPages/lgImg/lgImg",
+    "pages/my/my",
+    "pages/login/login",
+    "pages/detailPages/detailPages",
+    "pages/my_collection/my_collection",
+    "pages/my_order/my_order",
+    "pages/my_coupon/my_coupon",
+    "pages/city/city",
+    "pages/detailPages/report/report",
+    "pages/list/list",
+    "pages/search/search",
+    "pages/detailPages/brandList/brandList",
+    "pages/detailPages/m_pay/m_pay"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "爱租哪",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#033",
+    "selectedColor": "#333",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "img/tabbar11.png",
+        "selectedIconPath": "img/tabbar1.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "img/tabbar22.png",
+        "selectedIconPath": "img/tabbar2.png"
+      }
+    ]
+  }
+}

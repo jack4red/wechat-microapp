@@ -1,0 +1,233 @@
+<!--轮播图  -->
+<view id="imgBox" class="{{loadOver ? 'shadow' : ''}}">
+  <swiper indicator-dots="{{indicatorDots}}
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height:212px" bindchange="swiperChange">
+    <block wx:for="{{imgUrls}}" wx:key="{{key}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" bindtap="checkLgImg" bindload="loadOver"
+          style="width:100%;height:212px" mode="scaleToFill"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view id="uploadTime">{{houseInfo.edit_time}}</view>
+  <view id="imgsNum">{{current}}/{{imgsNum}}</view>
+  <image src="/img/big.png" class="overImg" mode="scaleToFill" style="{{loadOver ? 'display:none' : 'display:block'}}"></image>
+</view>
+<!--房源基本信息  -->
+<view id="basic-details" class="content-box">
+  <view class="house-name">{{houseInfo.house_title}}</view>
+  <view class="house-details dark-font size-22">
+    {{houseInfo.room}}室{{houseInfo.hall}}厅 {{houseInfo.r_acreage}}㎡ {{houseInfo.orientation}} 
+    <view class="fr last" style="{{houseInfo.l_id ? 'display:block' : 'display:none'}}">剩余{{houseInfo.total}}间</view>
+  </view>
+  <view class="show-price">
+    <view class="house-price yellow-font size-22">
+      <view class="size-34">{{houseInfo.all_rent}}</view>元/月（{{houseInfo.payType}}）
+    </view>
+    <view class="blue-font-1 size-22 fr" style="{{houseInfo.c_business ? 'display:block' : 'display:none'}}" bindtap="mPay">
+      <image src="../../img/remind-icon.png"class="small-label"></image>
+      {{houseInfo.c_business}} 
+    </view>
+  </view>
+  <view class="cl advantage-container">
+    <view class="advantage fl {{item.key == 0 ? 'advantage1' : ''}}" wx:for="{{houseInfo.houseSpecial}}" wx:key="{{key}}">{{item.value}}</view>
+  </view>
+  <view class="discount check-button" bindtap="close" 
+    wx:for="{{houseInfo.cardList ? houseInfo.cardList : []}}" wx:key="*this" data-index="{{index}}">
+    <view class="discount-icon">优惠</view>
+    <view class="dark-font size-24 inline-block">{{item.card_name}}</view>
+    <image src="../../img/arrow-r.png" class="arrowL fr"></image>
+  </view>
+</view>
+<!--地理位置  -->
+<view id="position" class="content-box" style="{{markers[0].longitude && markers[0].latitude ? 'display:block' : 'display:none'}}">
+  <view class="title-style cl">
+    <view class="fl size-30">地理位置</view>
+    <view class="inline-block fr size-26 gray-font" bindtap="checkmore">查看更多房源
+      <image src="../../img/arrow-r.png" class="arrowL"></image>
+    </view>
+  </view>
+  <view class="mapBox">
+    <!-- map.wxml -->
+    <image src="https://api.map.baidu.com/staticimage/v2?ak=8pPZDVUsaYtgIryS2L6QRu6xOhLwDxYZ&width=400&height=120&center={{markers[0].longitude}},{{markers[0].latitude}}&markers={{markers[0].longitude}},{{markers[0].latitude}}&zoom=15&markerStyles=s" bindtap="position"></image>
+  </view>
+  <view class="cl" style="margin:0 40rpx;">
+    <view class="fl gray-font size-24">地址</view>
+    <view class="dark-font size-24 fr">{{houseInfo.xdistrict_name + houseInfo.xstreet_name + houseInfo.xaddress}}</view>
+  </view>
+  <view class="cl" style="margin:0 40rpx;{{houseInfo.distance_subway ? 'display:block' : 'display:none'}}">
+    <view class="fl gray-font size-24">交通</view>
+    <view class="dark-font size-24 fr">{{houseInfo.distance_subway}}</view>
+  </view>
+</view>
+<!--房源信息  -->
+<view id="house-details" class="content-box">
+  <view class="title-style cl">
+    <view class="fl size-30">房源信息</view>
+  </view>
+  <view class="cl">
+    <view class="fl  info">
+      <view class="cl">
+        <view class="gray-font size-24 fl">编号：</view>
+        <view class="black-font size-24 fl">{{houseInfo.h_id}}</view>
+      </view>
+    </view>
+    <view class="fl  info">
+      <view class="cl">
+        <view class="gray-font size-24 fl">户型：</view>
+        <view class="black-font size-24 fl">{{houseInfo.room}}室{{houseInfo.hall}}厅{{houseInfo.toilet ? houseInfo.toilet + '卫' : ''}} </view>
+      </view>
+    </view>
+  </view>
+  <view class="cl">
+    <view class="fl  info">
+      <view class="cl">
+        <view class="gray-font size-24 fl">楼层：</view>
+        <view class="black-font size-24 fl">
+          <block wx:if="{{options.l_id > 0}}">
+            <text>{{(houseInfo.floor_low && houseInfo.floor_high) ? (houseInfo.floor_low >= houseInfo.floor_high?houseInfo.floor_low:(houseInfo.floor_low+'-'+houseInfo.floor_high)) : ''}}</text>
+          </block>
+          <block wx:else>
+            <text>{{(houseInfo.floor_low && houseInfo.floor_high) ? (houseInfo.floor_mode == '1'?(houseInfo.floor_high+'/'+houseInfo.floor_altogether):(houseInfo.floor_low+'-'+houseInfo.floor_high+'/'+houseInfo.floor_altogether)) : ''}}</text>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class="fl  info">
+      <view class="cl">
+        <view class="gray-font size-24 fl">装修：</view>
+        <view class="black-font size-24 fl">{{houseInfo.renovation == '不限' ? '精装' : houseInfo.renovation}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!--配套设施  -->
+<view id="facilities" class="content-box" style="{{houseInfo.facilitiesNow ? 'display:block' : 'display:none'}}">
+  <view class="title-style cl">
+    <view class="fl size-30">配套设施</view>
+  </view>
+  <view class="cl" style="padding-right:40rpx">
+    <view wx:for="{{houseInfo.facilitiesNow}}" class="facility-item fl" wx:key="{{key}}">
+      <image src="{{item.icon}}" mode="widthFix"></image>
+      <view class="size-20 dark-font">{{item.value}}</view>
+    </view>
+  </view>
+</view>
+<!--房源描述  -->
+<view id="house-description" class="content-box" style="{{!houseInfo.detail || houseInfo.detail == '限填200字' ? 'display:none' : 'display:block'}}">
+  <view class="title-style cl">
+    <view class="fl size-30">房源描述</view>
+  </view>
+  <view class="dark-font text-box {{isShowHouseDescription ? '' : 'text-hid'}}" id="view"
+    style="{{isShowHouseDescription ? 'height:auto' : 'max-height:108rpx'}}">
+    {{houseInfo.detail == '限填200字' ? '' : houseInfo.detail}}
+  </view>
+  <view class="arrow-box" bindtap="showAll" id="houseArrow" style="{{isShowArrow ? 'display:block' : 'display:none'}}">
+    <image src="{{isShowHouseDescription ? '/img/dropup.png' : '/img/dropdown.png'}}" class="arrowUp"></image>
+  </view>
+</view>
+<!--房间信息  -->
+<view id="house-info" class="content-box" 
+  style="{{house_comefrom == 2 || !houseInfo.roomInfo ? 'display:none' : 'display:block'}}">
+  <view class="title-style cl">
+    <view class="fl size-30">房间信息</view>
+  </view>
+  <view class="houseInfo-list">
+    <view wx:for="{{houseInfo.roomInfo}}" bindtap="{{item.r_rental_status != 1 || item.rid == houseInfo.r_id ? '' : 'checkHouse'}}"
+      style="{{item.rid == houseInfo.r_id ? 'color:#ff9000' : 'color:#333'}}" wx:key="{{key}}" data-id="{{item.rid}}" data-key="r_id">
+      <view>{{item.r_name}}</view>
+      <view>{{item.rid == houseInfo.r_id ? '当前房源' : item.r_rental_status == 1 ? '未出租' : '已入住'}}</view>
+      <view>{{item.r_acreage}}㎡</view>
+      <view>{{item.r_rent}}元/月</view>
+      <image src="../../img/arrow-r.png" style="{{item.r_rental_status != 1 || item.rid == houseInfo.r_id ? 'display:none' : 'display:block'}}"></image>
+    </view>
+  </view>
+</view>
+<!--户型信息  -->
+<view  class="content-box" 
+  style="{{houseInfo.l_id && houseInfo.house_type_lists && houseInfo.house_type_lists.length > 0 ? 'display:block' : 'display:none'}}">
+  <view class="title-style cl">
+    <view class="fl size-30">房型信息</view>
+  </view>
+  <view class="houseInfo-list">
+    <view wx:for="{{houseInfo.house_type_lists}}" bindtap="{{item.l_id == houseInfo.l_id ? '' : 'checkHouse'}}"
+      style="{{item.l_id == houseInfo.l_id ? 'color:#ff9000' : 'color:#333'}}" wx:key="{{key}}" data-id="{{item.l_id}}" data-key="l_id">
+      <view>{{item.l_name}}</view>
+      <view>{{item.l_id == houseInfo.l_id ? '当前房型' :'剩余' + item.total + '间'}}</view>
+      <view class="acreage">{{item.l_acreage}}㎡</view>
+      <view class="m_price">{{item.l_rent_low == item.l_rent_high ? item.l_rent_low : item.l_rent_low + '-' + item.l_rent_high}}元/月</view>
+      <image src="../../img/arrow-r.png" style="{{item.l_id == houseInfo.l_id ? 'display:none' : 'display:block'}}"></image>
+    </view>
+  </view>
+</view>
+<!--品牌公寓  -->
+<view id="brand" class="content-box" style="{{house_comefrom == 2 || houseInfo.c_id == 0 ? 'display:none' : 'display:block'}}">
+  <view class="title-style cl">
+    <view class="fl size-30">品牌公寓</view>
+  </view> 
+  <view>
+    <view class="brand cl">
+      <view class="cl fl">
+        <view class="brand-img fl">
+          <image src="{{houseInfo.logo ? houseInfo.logo : '/img/d_logo.png'}}"></image>
+        </view>
+        <view class="fl info">
+          <view class="title">{{houseInfo.companyid}}</view>
+          <view class="houseCount">该公寓品牌共有{{companyInfo.total}}套房源</view>
+        </view>
+      </view>
+      <view class="inline-block fr size-26 gray-font" bindtap="checkMoreHouse" style="padding-top:20rpx">查看全部
+        <image src="../../img/arrow-r.png" class="arrowL"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<!--举报投诉  -->
+<view id="complaint" class="cl" bindtap="report">
+  <view class="fl">
+    <image src="../../img/icon-1.png" class="icon-1"></image>
+    <view class="inline-block">房源信息有问题？</view>
+  </view>
+  <view class="fr">
+    <view class="inline-block">举报投诉</view>
+    <image src="../../img/arrow-r.png" class="arrow"></image>
+  </view>
+</view>
+<!--看房按钮  -->
+<view id="doSometing">
+  <view class="keep" bindtap="keep">
+    <view class="keepImg">
+      <image src="{{houseInfo.hasCollected ? '../../img/keep.png' : '../../img/no-keep.png'}}"></image>
+    </view>
+    <view style="{{houseInfo.hasCollected ? 'color:#ffa229' : 'color:#666'}}">收藏</view>
+  </view>
+  <view class="cl btnGroup">
+    <view class="checkHouse fl" bindtap="viewHouse" style="{{house_comefrom == 2 ? 'display:none' : 'display:block'}}">预约看房</view>
+    <view class="fl contact" bindtap="call">{{house_comefrom == 2 ? '联系房东' : '联系公寓'}}</view>
+  </view>
+</view>
+
+<!--优惠券  -->
+<view id="modal" style="{{isShowCoupon ? 'display:block' : 'display:none'}}">
+  <view class="youhuiquan">
+    <view class="title_y">领取优惠券<image src="/img/close.png" bindtap="close"></image></view>
+    <view class="content">
+      <view class="main show">
+        <view class="txt">
+          <view class="type yellow-font size-30">{{houseInfo.cardList[card_index].card_name}}</view>
+          <view class="gray-font size-20 time">有效期：{{card_start}}至{{card_end}}</view>
+          <view class="rule cl">
+            <view class="fl">使用规则</view>
+            <image class="fr" src="{{isShowRule ? '/img/top-arrow.png' : '/img/bottom-arrow.png'}}" bindtap="isShowRule"></image>
+          </view>
+        </view>
+        <view class="img_y" bindtap="{{houseInfo.cardList[card_index].hasActived ? '' : 'getCard'}}">
+          <image src="{{houseInfo.cardList[card_index].hasActived ? '/img/out-coupon.png' : '/img/coupon.png'}}" ></image>
+          <view class="size-38">{{houseInfo.cardList[card_index].hasActived ? '已领取' : '领取'}}</view>
+        </view>
+      </view>
+      <view class="size-24 ruleTxt" 
+        style="{{isShowRule ? 'display:block' : 'display:none'}}">{{houseInfo.cardList[card_index].card_description}}</view>
+      </view>
+    </view>
+</view>

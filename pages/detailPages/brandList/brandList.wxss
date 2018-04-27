@@ -1,0 +1,191 @@
+page{
+  background: #efeff4;
+  line-height: 1;
+  display: flex;
+  min-height:100%;
+  flex-direction:column;
+}
+/*基本信息展示  */
+.brandLogo{
+  display: block;
+  margin: 0 auto;
+  width:120rpx;
+  height:120rpx;
+  margin-bottom: 20rpx;
+}
+.brandName{
+  text-align: center;
+  font-size:30rpx;
+  font-weight: 900;
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid #e8e8e8;
+}
+.brandShow{
+  margin-bottom: 20rpx;
+  padding:35rpx 40rpx 45rpx;
+  background: #fff;
+}
+.text-box{
+  line-height: 15px;
+  max-height:auto;
+  overflow: hidden;
+  margin-top:30rpx;
+  font-size:12px;
+}
+.hidden{
+  opacity: 0;
+}
+.arrow-box{
+  text-align: center;
+}
+/*品牌公寓房源列表  */
+.listBox{
+  padding:0 40rpx 100rpx;
+  background: #fff;
+  flex: 1;
+}
+.title{
+  font-size:30rpx;
+  font-weight: 900;
+  line-height: 100rpx;
+  text-align: center;
+  height:100rpx;
+  border-bottom:1px solid #e8e8e8;
+}
+.bg-style{
+  border-bottom:1px solid #e8e8e8;
+  background: #fff;
+  padding:35rpx 0;
+  height:165rpx;
+  width:100%;
+}
+.imgBox{
+  height:100%;
+  width:31%;
+}
+.imgBox image{
+  width:100%;
+  height:100%;
+}
+.infoBox{
+  padding-left:34rpx;
+  width:69%;
+  box-sizing: border-box;
+}
+.iconBox{
+  white-space: nowrap;
+}
+.iconBox view{
+  line-height: 30rpx;
+  height:30rpx;
+  margin-right:10rpx;
+  padding:0 8rpx;
+  background: #e4efff;
+  display:inline-block;
+}
+.iconBox view:last-child{
+  margin:0;
+}
+.priceRange{
+  color:#ff9000;
+  font-size:30rpx;
+}
+.price{
+  margin:20rpx 0 16rpx;
+}
+.dark-font{
+  margin-bottom: 25rpx;
+}
+
+#info{
+  color:#4c4c4c;
+  font-size:28rpx;
+  display: block;
+}
+.p{
+  padding-left:40rpx;
+}
+#info .phoneInfo,#info .resonInfo{
+  height:90rpx;
+  line-height: 90rpx;
+  border-bottom:1px solid #e5e5e5;
+}
+#info .resonInfo{
+  border:none;
+}
+.alert{
+  height:90rpx;
+  line-height: 90rpx;
+  margin-bottom: 55rpx;
+}
+.alert image{
+  margin-right:13rpx;
+  vertical-align: -3%;
+}
+#info .phoneTxt,#info .phoneInput{
+  height:90rpx;
+  line-height: 90rpx;
+  text-align: right;
+}
+#info .phoneInput{
+  width:247rpx;
+  padding-right:40rpx;
+}
+.selectReson{
+  padding-right:40rpx;
+  color:#a6a6a6;
+}
+.selectReson image{
+  height:20rpx;
+  width:11rpx;
+  margin-left:20rpx;
+  margin-top:37rpx;
+}
+.moreReason{
+  position:relative;
+}
+button{
+  background:#ffa42f;
+  margin:0 40rpx;
+  border:none;
+  color:#fff;
+  font-size:36rpx;
+  outline: none;
+}
+.alert image{
+  width:24rpx;
+  height:27rpx;
+}
+.checkmore{
+  height:100rpx;
+  width:100%;
+  line-height: 100rpx;
+  background: #ffa229;
+  color:#fff;
+  text-align: center;
+  font-size:30rpx;
+  font-weight: 900;
+  position: fixed;
+  left:0px;
+  bottom:0px;
+}
+.no_house{
+  width:100%;
+  height:300rpx;
+}
+.no_house image{
+  display: block;
+  margin: 100rpx auto 0;
+  width:143rpx;
+  height:160rpx;
+}
+.no_house view{
+  font-size:24rpx;
+  color:#bfbfbf;
+  text-align: center;
+  margin-top:10rpx;
+}
+.advantage1{
+  background: #4994ff !important;
+  color:#fff;
+}

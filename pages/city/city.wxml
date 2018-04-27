@@ -1,0 +1,25 @@
+<view class='city'>
+  <view class='city_title'>当前定位城市</view>
+  <view class='city_con'>
+    <!-- <navigator open-type='navigateBack'> -->
+      <view class='city_con_left' bindtap='navigatorBack' data-cityname='{{local_cityname}}' data-city='{{local_city}}'>
+        <image src='../../img/localed.png'></image>
+        <text>{{local_cityname}}</text>
+      </view>
+    <!-- </navigator> -->
+    <view class='city_con_right' bindtap='freshen_local'>
+      <image src='../../img/freshen.png'></image>
+      <text>重新定位</text>
+    </view>
+  </view>
+  <view class='city_title'>已开通城市</view>
+  <view class='all_citys'>
+    <block wx:for='{{all_city}}' wx:key="*this">
+      <!-- <navigator open-type='navigateBack'> -->
+        <view class="city_con_list {{city == item.city ? 'active' : ' '}}" data-city='{{item.city}}' data-cityname='{{item.city_name}}' bindtap='navigatorBack'>
+          <text>{{item.city_name}}</text>
+        </view>
+      <!-- </navigator> -->
+    </block>
+  </view>
+</view>

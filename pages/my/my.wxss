@@ -1,0 +1,62 @@
+/**my.wxss**/
+page{
+    background: #efeff4;
+    font-size: 30rpx;
+}
+
+.my-container .login-bar{
+    height: 180rpx;
+    background: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30rpx;
+}
+.my-container .head-img{
+    height: 100rpx;
+    width: 100rpx;
+    border-radius: 50rpx;
+    display: inline-block;
+    margin: 0 30rpx;
+}
+.my-container .login-info{
+    display: inline-block;
+}
+.my-container .items{
+    background: white;
+}
+.my-container .items .item{
+    height: 100rpx;
+    padding-left: 25rpx;
+}
+.my-container .items .item + .item .border{
+  border-top: 1rpx solid #ebebeb;
+}
+.my-container .items .item .border{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+.my-container .items .icon{
+    max-width: 46rpx;
+    max-height: 46rpx;
+    margin-right: 25rpx;
+}
+.my-container .items .text{
+    flex-grow: 6
+}
+.my-container .items .num{
+    margin-right: 20rpx;
+    color: #a6a6a6;
+}
+.my-container .items .arrow{
+    max-width: 16rpx;
+    max-height: 25rpx;
+    margin-right: 25rpx;
+}
+.my-container .logout{
+    width: 690rpx;
+    height: 88rpx;
+    box-sizing: border-box;
+    margin: 60rpx auto;
+    background: #fbfafc;
+}

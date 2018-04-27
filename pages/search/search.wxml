@@ -1,0 +1,68 @@
+<view class='search_input_out'>
+  <view class='search_input'>
+    <image src='../../img/search.png'></image>
+    <input placeholder='请输入小区、区域、地铁站名称' focus placeholder-class='input-placeholder' confirm-type='search' bindinput='confirm_input' value='{{keyword}}' bindconfirm='confimSearch'></input>
+    <image class='clearinput' wx:if='{{showclearinput}}' bindtap='clearinput' src='../../img/search_close.png'></image>
+  </view>
+  <navigator open-type='navigateBack'><view class='cancel'>取消</view></navigator>
+</view>
+<!--热门搜索  -->
+<view class='hot_search' wx:if="{{hotkeywords.length > 0}}">
+  <view class='title'>热门搜索</view>
+  <view class='hot_search_con'>
+    <view wx:for='{{hotkeywords}}' wx:key="*this" class='items' bindtap='hisSearchInput' data-value='{{item}}'>{{item}}</view>
+  </view>
+</view>
+<!--历史搜索  -->
+<view class='history_search' wx:if ='{{isShowHistoryWord}}'>
+  <view class='title'>
+    <text>历史搜索</text>
+    <view bindtap='enptyHistory'>
+      <image src='../../img/empty.png'></image>
+      <text>清空</text>
+    </view>
+  </view>
+  <view class='history_result'>
+    <view  wx:for='{{historyWord}}' wx:key="*this" data-value='{{item}}' bindtap='hisSearchInput'>{{item}}</view>
+  </view>
+</view>
+<!--搜索结果  -->
+<view class='search_result' wx:if='{{search_result_show}}'>
+    <view class='no-result' wx:if="{{lists.quyu==''&&lists.ditie==''&&lists.xiaoqu==''}}">暂无搜索数据</view>
+    <!--区域商圈  -->
+    <view class='search_result_items'>
+      <view class='title' wx:if="{{lists.quyu!=''}}">区域商圈</view>
+      <block wx:for='{{lists.quyu}}' wx:key="*this">
+        <view class='search_result_items_con' bindtap='navigatorList' data-type='{{item.type}}' data-id='{{item.id}}' data-name='{{item.name}}'>
+          <image src='../../img/local_hui.png'></image>
+          <text>{{item.name}}</text>
+          <text class='text2'>{{item.address}}</text>
+          <view>{{item.count}}套</view>
+        </view>
+      </block>
+    </view>
+    <!--地铁站  -->
+    <view class='search_result_items'>
+      <view class='title' wx:if="{{lists.ditie!=''}}">地铁站</view>
+      <block wx:for='{{lists.ditie}}' wx:key="*this">
+        <view class='search_result_items_con' bindtap='navigatorList' data-type='{{item.type}}' data-id='{{item.id}}' data-name='{{item.name}}'>
+          <image src='../../img/local_hui.png'></image>
+          <text>{{item.name}}</text>
+          <text class='text2'>{{item.address}}</text>
+          <view>{{item.count}}套</view>
+        </view>
+      </block>
+    </view>
+    <!--小区 -->
+    <view class='search_result_items'>
+      <view class='title' wx:if="{{lists.xiaoqu!=''}}">小区</view>
+      <block wx:for='{{lists.xiaoqu}}' wx:key="*this">
+        <view class='search_result_items_con' bindtap='navigatorList' data-type='{{item.type}}' data-id='{{item.id}}' data-name='{{item.name}}'>
+          <image src='../../img/local_hui.png'></image>
+          <text>{{item.name}}</text>
+          <text class='text2'>{{item.address}}</text>
+          <view>{{item.count}}套</view>
+        </view>
+      </block>
+    </view>
+</view>

@@ -1,0 +1,105 @@
+page{
+  height:100%;
+  background:#f4f4f4;
+  line-height: 1;
+}
+.bg-style{
+  margin-bottom: 20rpx;
+  background: #fff;
+}
+#houseInfo{
+  padding:35rpx;
+  height:165rpx;
+  display: flex;
+  display: -webkit-flex;
+}
+.imgBox{
+  height:100%;
+  width:210rpx;
+}
+.imgBox image{
+  width:100%;
+  height:100%;
+}
+.infoBox{
+  flex: 1;
+  padding-left:34rpx;
+}
+.blue-font view{
+  line-height: 30rpx;
+  height:30rpx;
+  margin-right:12rpx;
+  padding:0 8rpx;
+  background: #e4efff;
+  display:inline-block;
+}
+.price{
+  margin:20rpx 0 16rpx;
+}
+.dark-font{
+  margin-bottom: 25rpx;
+}
+
+#info{
+  color:#4c4c4c;
+  font-size:28rpx;
+  display: block;
+}
+.p{
+  padding-left:40rpx;
+}
+#info .phoneInfo,#info .resonInfo{
+  height:90rpx;
+  line-height: 90rpx;
+  border-bottom:1px solid #e5e5e5;
+}
+#info .resonInfo{
+  border:none;
+}
+.alert{
+  height:90rpx;
+  line-height: 90rpx;
+  margin-bottom: 55rpx;
+}
+.alert image{
+  margin-right:13rpx;
+  vertical-align: -3%;
+}
+#info .phoneTxt,#info .phoneInput{
+  height:90rpx;
+  line-height: 90rpx;
+  text-align: right;
+}
+#info .phoneInput{
+  width:247rpx;
+  padding-right:40rpx;
+}
+.selectReson{
+  padding-right:40rpx;
+  color:#a6a6a6;
+}
+.selectReson image{
+  height:20rpx;
+  width:11rpx;
+  margin-left:20rpx;
+  margin-top:37rpx;
+}
+.moreReason{
+  position:relative;
+}
+button{
+  background:#ffa42f;
+  margin:0 40rpx;
+  border:none;
+  color:#fff;
+  font-size:36rpx;
+  outline: none;
+}
+.alert image{
+  width:24rpx;
+  height:27rpx;
+}
+.advantage1{
+  background: #4994ff !important;
+  color:#fff;
+}

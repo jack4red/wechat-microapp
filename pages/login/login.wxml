@@ -1,0 +1,15 @@
+<view class='login-container'>
+  <image class='head-img' src='../../img/default-head.png'></image>
+  <view class='tel-container'>
+    <view class="section">
+      <input class='tel-input' type='number' placeholder="请输入手机号码" bindinput="inputPhone" />
+    </view>
+    <view class="section">
+      <input class='code-input' type='number' placeholder="请输入验证码" bindinput="inputCode" value="{{ code }}" />
+      <view bindtap="getCode" class='button'>{{codename}}</view>
+    </view>
+  </view>
+  <button bindtap="passportLogin" class='loginbtn'>登录</button>
+  <view class='split'>其他方式登录</view>
+  <button class='weixin-loginbtn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"><image src='../../img/weixin-icon.png'></image> 微信授权登录</button>
+</view>

@@ -1,0 +1,146 @@
+/* pages/my_coupon/my_coupon.wxss */
+
+page {
+  background: #efeff4;
+}
+
+.coupon-container .tabs {
+  width: 100%;
+  height: 88rpx;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+.coupon-container .tab-item {
+  height: 87rpx;
+  font-size: 30rpx;
+  padding: 0 30rpx;
+  line-height: 88rpx;
+  border-bottom: 1rpx solid transparent;
+}
+
+.coupon-container .tab-item.active {
+  border-bottom: 1rpx solid #ffa229;
+  color: #ffa229;
+}
+
+.coupon-container .panel {
+  margin-top: 108rpx;
+  display: none;
+}
+
+.coupon-container .panel.active {
+  display: block;
+}
+
+.coupon-container .panel .coupon-item {
+  position: relative;
+  width: 700rpx;
+  min-height: 197rpx;
+  border: 1px solid #e5e5e5;
+  background: white;
+  margin: 20rpx auto;
+}
+
+.coupon-container .panel .coupon-item .main {
+  height: 194rpx;
+  padding: 0 15rpx;
+  width: 420rpx;
+  display: inline-block;
+}
+
+.coupon-container .panel .coupon-item .main .title {
+  font-size: 28rpx;
+  line-height: 42rpx;
+  color: black;
+  white-space: normal;
+  margin-top: 21rpx;
+  height: 85rpx;
+}
+
+.coupon-container .panel .coupon-item .main .validity {
+  font-size: 22rpx;
+  color: #aaa;
+}
+
+.coupon-container .panel .coupon-item .main .use-rule {
+  font-size: 24rpx;
+  color: #aaa;
+  height: 55rpx;
+  border-top: 1rpx dashed #e5e5e5;
+  line-height: 55rpx;
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.coupon-container .panel .coupon-item .main .use-rule .arrow {
+  max-width: 30rpx;
+  max-height: 30rpx;
+  position: absolute;
+  right: 0;
+  top: 12rpx;
+}
+
+.coupon-container .panel .coupon-item .code {
+  width: 249rpx;
+  height: 197rpx;
+  position: absolute;
+  top: 0;
+  right: -5rpx;
+  z-index: 55;
+}
+
+.coupon-container .panel .coupon-item .code-text {
+  position: absolute;
+  right: -5rpx;
+  top: 20rpx;
+  width: 249rpx;
+  text-align: center;
+  vertical-align: middle;
+  z-index: 66;
+}
+
+.coupon-container .panel .coupon-item .code-text text {
+  display: block;
+  color: white;
+  margin-top: 20rpx;
+  font-size: 40rpx;
+}
+
+.coupon-container .panel .coupon-item .code-text text:first-child {
+  font-size: 30rpx;
+}
+
+.coupon-container .panel .coupon-item .rule {
+  transition: all 0.5s;
+  display: none;
+  height: 0;
+}
+
+/* 展开状态 */
+.coupon-container .panel .coupon-item.active .rule {
+  display: block;
+  height: auto;
+  line-height: 59rpx;
+  border-top: 1rpx solid #e5e5e5;
+  font-size: 24rpx;
+  color: #333;
+  padding-left: 15rpx;
+}
+
+.coupon-container .panel .coupon-item.active .main .use-rule .arrow{
+  transform: rotate(180deg);
+}
+
+.coupon-container .panel .coupon-item .used {
+  width: 120rpx;
+  height: 120rpx;
+  position: absolute;
+  top: -15rpx;
+  right: -15rpx;
+  z-index: 77;
+}

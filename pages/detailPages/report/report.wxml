@@ -1,0 +1,36 @@
+<form bindsubmit="formSubmit" id="info">
+  <view>
+    <view class="cl phoneInfo">
+      <view class="phoneTxt fl">联系方式</view>
+      <view class="phoneInput fr">{{reportInfo.phone}}</view>
+    </view>
+    <picker mode="selector" bindchange="selectReason"   range="{{reason}}" range-key="reason">
+      <view class="cl resonInfo">
+        <view class="fl">举报理由</view>
+        <view class="fr cl selectReson">
+          <view class="fl" style="{{reasonTxt === '请选择举报理由' ? 'color:#a6a6a6' : 'color:#333'}}">{{reasonTxt}}</view>
+          <image src="../../../img/arrow-r.png" class="fl"></image>
+        </view>
+      </view>
+    </picker>
+    <view class="moreReason">
+      <textarea placeholder="补充更多信息以便工作人员进行判断（必填）" auto-focus maxlength="50" name="reason"
+        placeholder-style="color:#a6a6a6" bindinput="checkNum"/>
+      <view class="countNum"><text class="theNum">{{count}}</text><text>/50</text></view>
+    </view>
+  </view>
+  <view id="uploadImg">
+    <view class="imgBox">
+      <view class="img" wx:for="{{images}}" wx:key="{{key}}">
+        <image src="{{item}}"></image>
+        <icon type="success" size="18" color="#f43631" data-index="{{index}}"
+          style="position:absolute;right:-18rpx;top:-18rpx;background:#fff;border-radius:50%" bindtap="deleteImg" type="clear"/> 
+      </view>
+      <view class="uploadBtn" bindtap="uploadImg" style="{{images.length == 3 ? 'display:none' : 'display:inline-block'}}">
+        <image src="../../../img/no-img.png"></image>
+      </view>
+    </view>
+  </view>
+  <button hover-class="none" formType="submit" disabled="{{canSubmit}}">提交</button>
+</form>
+<view style="color:#a6a6a6;position:fixed;font-size:24rpx;text-align:center;bottom:39rpx;width:100%">举报电话：400-8988-365转8888</view>
